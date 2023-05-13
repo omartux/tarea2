@@ -33,12 +33,8 @@ dataset_final = dataset_final.loc[usuarios_sin_votar[usuarios_sin_votar > 10].in
 dataset_final = dataset_final.loc[:, peliculas_sin_votos[peliculas_sin_votos > 50].index] #minimo 50 votos para considerarse recomendable
 dataset_final
 
-muestra = np.array([[0, 0, 3, 0, 0], [4, 0, 0, 0, 2], [0, 0, 0, 0, 1]])
-esparsidad = 1.0 - (np.count_nonzero(muestra) / float(muestra.size))
-print(esparsidad)
 
 from scipy.sparse import csr_matrix #libreria para mejorar la eficiencia en matrices con alta sparcidad
-muestra_csr = csr_matrix(muestra)
 #print(muestra_csr)
 
 csr_datos = csr_matrix(dataset_final.values)
